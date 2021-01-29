@@ -12,19 +12,19 @@ int main(){
 	
 
 	
-menu:	printf("1.Para Çekme\n2.Para Yatırma\n3.Bakiye Sorgulama\n4.Havale Yapma\n5.Fatura Ödeme\n");
-	printf("Lütfen Yapmak İstediğiniz İşlemi Seçiniz\n");
-	printf("LÜTFEN ÇIKMAK İÇİN -1 e Basınız\n");
+menu:	printf("1.Para Ã‡ekme\n2.Para YatÄ±rma\n3.Bakiye Sorgulama\n4.Havale Yapma\n5.Fatura Ã–deme\n");
+	printf("LÃ¼tfen Yapmak Ä°stediÄŸiniz Ä°ÅŸlemi SeÃ§iniz\n");
+	printf("LÃœTFEN Ã‡IKMAK Ä°Ã‡Ä°N -1 e BasÄ±nÄ±z\n");
 	scanf("%d",&islem);
 	
 	
 	switch(islem){
 		case 1: 
 		printf("Bakiyeniz %.2f\n",Bakiye);
-		printf("Lütfen Çekmek İstediğiniz Tutarı Giriniz\n");
+		printf("LÃ¼tfen Ã‡ekmek Ä°stediÄŸiniz TutarÄ± Giriniz\n");
 		scanf("%f",&Tutar);
 		if(Tutar > Bakiye){
-			printf("YETERSİZ BAKİYE\n");
+			printf("YETERSÄ°Z BAKÄ°YE\n");
 		}
 		else{
 	
@@ -34,7 +34,7 @@ menu:	printf("1.Para Çekme\n2.Para Yatırma\n3.Bakiye Sorgulama\n4.Havale Yapma\n
 		break;
 		
 		case 2:
-		printf("Lütfen Yatırmak İstediğiniz Tutarı Giriniz\n");
+		printf("LÃ¼tfen YatÄ±rmak Ä°stediÄŸiniz TutarÄ± Giriniz\n");
 		scanf("%f",&Tutar);
 		Bakiye += Tutar;
 		printf("Yeni bakiyeniz %.2f\n",Bakiye);
@@ -44,51 +44,51 @@ menu:	printf("1.Para Çekme\n2.Para Yatırma\n3.Bakiye Sorgulama\n4.Havale Yapma\n
 		printf("Bakiyeniz %.2f\n",Bakiye);
 		
 		case 4 : 
-		printf("Hesap numarası giriniz ");
+		printf("Hesap numarasÄ± giriniz ");
 		scanf("%d",&numara);
-		printf("Hesaba aktarılacak Limiti giriniz ");
+		printf("Hesaba aktarÄ±lacak Limiti giriniz ");
 		scanf("%f",&Tutar);
 		if(Tutar > Bakiye){
-			printf("YETERSİZ BAKİYE\n");
+			printf("YETERSÄ°Z BAKÄ°YE\n");
 				}
 				else{
 				
 		Bakiye -= Tutar;
-		printf("Hesaba Aktarılan Tutar %f \n Kalan Bakiyeniz %f dir",Tutar,Bakiye);
+		printf("Hesaba AktarÄ±lan Tutar %f \n Kalan Bakiyeniz %f dir",Tutar,Bakiye);
 		break;	}	
 
 	
 	    case 5: 
-	    printf("1.Su Faturası\n2.Elektrik Faturası\n3.Doğalgaz Faturası\n");
+	    printf("1.Su FaturasÄ±\n2.Elektrik FaturasÄ±\n3.DoÄŸalgaz FaturasÄ±\n");
 	    scanf("%d",&secim);
 	    switch(secim){
 	    	case 1 : 
 	    	
 	    	
-	   	printf("Lütfen Ödemek İstediğiniz Tutarı Giriniz\n");
+	   	printf("LÃ¼tfen Ã–demek Ä°stediÄŸiniz TutarÄ± Giriniz\n");
 		scanf("%f",&Tutar);
 		Bakiye -= Tutar;
-		printf("İşleminiz Başarı İle Gerçekleşmiştir\nYeni bakiyeniz %.2f\n",Bakiye);
+		printf("Ä°ÅŸleminiz BaÅŸarÄ± Ä°le GerÃ§ekleÅŸmiÅŸtir\nYeni bakiyeniz %.2f\n",Bakiye);
 		break;
 		break;
 	    	case 2 : 
 	      	
-	   	printf("Lütfen Ödemek İstediğiniz Tutarı Giriniz\n");
+	   	printf("LÃ¼tfen Ã–demek Ä°stediÄŸiniz TutarÄ± Giriniz\n");
 		scanf("%f",&Tutar);
 		Bakiye -= Tutar;
-		printf("İşleminiz Başarı İle Gerçekleşmiştir\nYeni bakiyeniz %.2f\n",Bakiye);
+		printf("Ä°ÅŸleminiz BaÅŸarÄ± Ä°le GerÃ§ekleÅŸmiÅŸtir\nYeni bakiyeniz %.2f\n",Bakiye);
 		break;
 		case 3 : 
 		  	
-	   	printf("Lütfen Ödemek İstediğiniz Tutarı Giriniz\n");
+	   	printf("LÃ¼tfen Ã–demek Ä°stediÄŸiniz TutarÄ± Giriniz\n");
 		scanf("%f",&Tutar);
 		Bakiye -= Tutar;
-		printf("İşleminiz Başarı İle Gerçekleşmiştir\nYeni bakiyeniz %.2f\n",Bakiye);
+		printf("Ä°ÅŸleminiz BaÅŸarÄ± Ä°le GerÃ§ekleÅŸmiÅŸtir\nYeni bakiyeniz %.2f\n",Bakiye);
 		
 		break;
 		
 		default :
-			printf("Lütfen 1-5 Arası Seçim yapınız");
+			printf("LÃ¼tfen 1-5 ArasÄ± SeÃ§im yapÄ±nÄ±z");
 		}
 			}
 				if(islem == -1){
