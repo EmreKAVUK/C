@@ -1,1 +1,193 @@
+#include<stdio.h>
+#include<malloc.h>
 
+struct node{
+	int data;
+	struct node* right;
+	struct node* left;
+	int height;
+};
+int FHeight(struct node* node){
+	if(node == NULL)
+		return 0;
+	return node->height;
+}
+int compare(int a, int b){
+	if (a >= b)
+		return a;
+	else
+		return b;
+}
+struct node* newNode(int key){
+	
+	
+	struct node* newnode = (struct node*)malloc(sizeof(struct node));
+	newnode->data = key;
+	newnode->left = NULL;
+	newnode->right = NULL;
+	
+
+	newnode->height = 1;
+
+	return newnode;
+}
+struct node *turnright(struct node* y){
+	
+	struct node *x = y->left;
+	struct node *t1 = x->right;
+	
+	x->right = y;
+	y->left = t1;
+	y->height = compare(FHeight(y->left), FHeight(y->right)) + 1;
+	x->height = compare(FHeight(x->left), FHeight(x->right)) + 1;
+	return x;
+
+};
+struct node *turnleft(struct node* x){
+	struct node *y = x->right;
+	struct node *t1 = y->left;
+	y->left =x;
+	x->right = t1;
+	y->height = compare(FHeight(y->left), FHeight(y->right)) + 1;
+	x->height = compare(FHeight(x->left), FHeight(x->right)) + 1;
+	return y;
+}
+int balanceCheck(struct node* node)
+{
+	if (node == NULL)
+		return 0;
+	else
+		return FHeight(node->left) - FHeight(node->right);
+
+}
+struct node* add(struct node* root, int key)
+{
+	if(root == NULL)
+			return newNode(key);
+	
+	if(key < root->data)
+			root->left = add(root->left, key);
+	
+	else if(key > root->data)
+			root->right = add(root->right , key);
+	else 
+			return root;
+	
+	root->height = compare(FHeight(root->left), FHeight(root->right)) + 1;
+	int balance = balanceCheck(root);
+	if(balance > 1 && key < root->left->data)
+			return turnright(root);
+	if(balance < -1 && key > root->right->data)
+			return turnleft(root);
+	if(balance > 1 && key > root->left->data){
+		root->left = turnleft(root->left);
+		return turnright(root);
+	}
+	if(balance < -1 && key < root->right->data){
+		root->right = turnright(root->right);
+		return  turnleft(root);
+	}
+			
+		return root;
+}
+int DLR(struct node* n){
+	if(n==NULL)
+		return 0;
+		
+	printf("%d ",n->data);
+	DLR(n->left);
+	DLR(n->right);
+	return 1;
+}
+struct node* minItem(struct node* tTree)  
+{   
+    if(tTree->left)
+    {
+        tTree = tTree->left;
+    }
+    else;
+    return tTree;
+}
+
+int LRD(struct node* n){
+	if(n==NULL)
+		return 0;
+		
+	LRD(n->left);
+	LRD(n->right);
+	printf("%d ",n->data);
+}	
+void InOrder(struct node* root){
+	if(root != NULL){
+		InOrder(root->left);
+		printf("%d ",root->data);
+		InOrder(root->right);
+	}
+}
+struct node* del(struct node *tTree, int delItem) 
+{
+    if(!(tTree))
+        return tTree;
+    if(delItem < tTree->data)
+        tTree->left = del(tTree->left, delItem);
+    else 
+        if(delItem > tTree->data)
+            tTree->right = del(tTree->right, delItem); 
+        else 
+            if((tTree->left) && (tTree->right))
+            {
+                struct node *tmp= minItem(tTree->right);
+                tTree->data = tmp->data;
+                if(tTree->right->left)
+                    tTree->right = del(tTree->right,tTree->right->left->data); 
+                else 
+					tTree->right = del(tTree->right,tTree->right->data);       
+            }
+            else
+                if(tTree->left)
+                    tTree = tTree->left;
+                else
+                    tTree = tTree->right;
+                return tTree;
+}
+
+struct node *balanceNode(struct node *t)
+{
+    if (!t) 
+		return t;
+    int balance = balanceCheck(t);
+    if (balance > 1 && balanceCheck(t->left) >= 0)   
+        return turnright(t);
+    if (balance < -1 && balanceCheck(t->right) <= 0)
+        return turnleft(t);
+    if (balance > 1 && balanceCheck(t->left) < 0)    
+    {
+        t->left = turnleft(t->left);
+        return turnright(t);
+    }
+    if (balance < -1 && balanceCheck(t->right) > 0)  
+    {
+        t->right = turnright(t->right);
+        return turnleft(t);
+    }
+    return t;
+}
+int main(){
+	
+	struct node* root = NULL;
+	int s;
+	root = add(root, 10);
+	root = add(root, 20);
+	root = add(root, 30);
+	root = add(root, 40);
+	root = add(root, 50);
+	root = add(root, 25);
+	del(root, 50);
+	DLR(root);
+//	LRD(root);
+//	InOrder(root);
+
+
+	
+	return 0;
+}
