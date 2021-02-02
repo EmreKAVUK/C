@@ -4,26 +4,26 @@ int main(){
 	setlocale(LC_ALL,"Turkish");
 	FILE *kayit;
 	int secim ;
-	char isim[25];
-	char soyad[25];
-	char bolum[25];
+	char isim[25];//name
+	char soyad[25];//surname
+	char bolum[25];//department
 	int yas;
 	int choose;
 	kayit = fopen("untitled1.txt","a");
 	while(1==1){
-menu:	printf("Adınızı ve Soyadınızı giriniz\n");
+menu:	printf("AdÄ±nÄ±zÄ± ve SoyadÄ±nÄ±zÄ± giriniz\n");
 		scanf("%s %s",&isim,&soyad);
 		fflush(stdin);
 		fprintf(kayit,"Ad : %s %s\n",&isim,&soyad);
-		printf("Yaşınızı giriniz\n");
+		printf("YaÅŸÄ±nÄ±zÄ± giriniz\n");
 		scanf("%d",&yas);
 		fflush(stdin);
-		fprintf(kayit,"Yaş : %d\n",yas);
-		printf("Bölümünüzü giriniz\n");
+		fprintf(kayit,"YaÅŸ : %d\n",yas);
+		printf("BÃ¶lÃ¼mÃ¼nÃ¼zÃ¼ giriniz\n");
 		fflush(stdin);
 		gets(bolum);
-		fprintf(kayit,"Bölüm : %s\n",&bolum);
-		printf("1-) Devam Et\n2-) İşlemi bitir\n");
+		fprintf(kayit,"BÃ¶lÃ¼m : %s\n",&bolum);
+		printf("1-) Devam Et\n2-) Ä°ÅŸlemi bitir\n");
 		scanf("%d",&choose);
 		if(choose == 1 )
 		goto menu;
@@ -32,7 +32,7 @@ menu:	printf("Adınızı ve Soyadınızı giriniz\n");
     return 3;
 		}
 		else{
-			printf("Lütfen işlemi doğru seçiniz ! \a \n");
+			printf("LÃ¼tfen iÅŸlemi doÄŸru seÃ§iniz ! \a \n");
 		}
 		fclose(kayit);
 		
