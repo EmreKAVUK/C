@@ -14,7 +14,7 @@ int main(){
 int karakterinAsciiDegeri = karakter;
 if (karakterinAsciiDegeri >= 60 && karakterinAsciiDegeri<=90){
 	
-	printf("Harf Büyüktür ve Ascii degeri %d dir\n ", karakterinAsciiDegeri);
+	printf("Harf BÃ¼yÃ¼ktÃ¼r ve Ascii degeri %d dir\n ", karakterinAsciiDegeri);
 	
 }
 
@@ -22,11 +22,11 @@ if (karakterinAsciiDegeri >= 60 && karakterinAsciiDegeri<=90){
 
 
 if(karakterinAsciiDegeri >= 97 && karakterinAsciiDegeri<=122){
-	printf("Harf Küçüktür ve Ascii  degeri %d dir \n", karakterinAsciiDegeri);
+	printf("Harf KÃ¼Ã§Ã¼ktÃ¼r ve Ascii  degeri %d dir \n", karakterinAsciiDegeri);
 }
 
 else{
-	printf("Lütfen A-Z aralýðýnda bir harf giriniz");
+	printf("LÃ¼tfen A-Z aralÄ±ÄŸÄ±nda bir harf giriniz");
 	
 	
 }
